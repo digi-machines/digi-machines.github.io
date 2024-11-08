@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Fiji</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body and Layout */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #a8e6cf, #ffcccb);
+            background-size: 400% 400%;
+            color: #333;
+            animation: gradientBackground 15s ease infinite;
+        }
+
+        /* Content Wrapper */
+        .content {
+            flex: 1; /* Pushes the footer to the bottom */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Gradient Background Animation */
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Logo Section */
+        .header {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 400px;
+            width: 80%;
+        }
+
+        .header h1 {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+
+        /* Main Container for Faculty Blocks */
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin-top: 20px;
+            margin-bottom: 40px; /* Added space between the container and footer */
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+        }
+
+        /* Faculty Blocks */
+        .faculty-block {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .faculty-block:hover {
+            transform: scale(1.05);
+        }
+
+        .faculty-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .faculty-description {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Button Style */
+        .faculty-button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .faculty-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #2e3b85;
+            color: #fff;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            max-width: 250px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #cdd6f3;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.9em;
+            color: #cdd6f3;
+            line-height: 1.6;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick Links Styling */
+        .footer-links a {
+            display: block;
+            margin-bottom: 5px;
+            color: #cdd6f3;
+        }
+
+        /* Social Media Icons */
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social a {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #3b5998; /* Facebook color */
+            border-radius: 3px;
+            color: #fff;
+            font-size: 1.2em;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .footer-social a.twitter {
+            background-color: #1da1f2; /* Twitter color */
+        }
+
+        .footer-social a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            background-color: #1b2653;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.85em;
+            color: #cdd6f3;
+            width: 100%;
+        }
+
+        /* Responsive Design for Faculty Blocks */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                grid-template-columns: 1fr; /* 1 column for mobile */
+            }
+            
+            .header img {
+                max-width: 250px;
+                width: 70%;
+            }
+
+            .faculty-title {
+                font-size: 1.3em;
+            }
+
+            .faculty-description {
+                font-size: 0.9em;
+            }
+
+            .faculty-button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header img {
+                max-width: 200px;
+                width: 60%;
+            }
+
+            .faculty-title {
+                font-size: 1.2em;
+            }
+
+            .faculty-description {
+                font-size: 0.8em;
+            }
+
+            .faculty-button {
+                font-size: 0.8em;
+                padding: 6px 14px;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;"> <!-- Disable right-click -->
+
+    <!-- Content Wrapper to push footer down -->
+    <div class="content">
+        <!-- Logo Section -->
+        <div class="header">
+            <img src="logo.png" alt="University of Fiji Logo">
+            <h1>The University of Fiji</h1>
+            <p>Empowering the Future, Inspiring Excellence</p>
+        </div>
+
+        <!-- Faculty Blocks Container -->
+        <div class="container">
+            <!-- School of Humanities & Arts -->
+            <div class="faculty-block">
+                <h2 class="faculty-title">School of Humanities & Arts</h2>
+                <p class="faculty-description">
+                    The School of Humanities & Arts fosters creativity and critical thinking in the fields of art, literature, and social sciences.
+                </p>
+                <a href="https://www.unifiji.ac.fj/school-of-humanities-arts/" class="faculty-button">Visit School</a>
+            </div>
+
+            <!-- School of Science & Technology -->
+            <div class="faculty-block">
+                <h2 class="faculty-title">School of Science & Technology</h2>
+                <p class="faculty-description">
+                    The School of Science & Technology promotes scientific research and innovation, with programs in various scientific and technological fields.
+                </p>
+                <a href="https://www.unifiji.ac.fj/sost/" class="faculty-button">Visit School</a>
+            </div>
+
+            <!-- School of Business and Economics -->
+            <div class="faculty-block">
+                <h2 class="faculty-title">School of Business and Economics</h2>
+                <p class="faculty-description">
+                    The School of Business and Economics trains future leaders in business, economics, and finance through a blend of theory and practice.
+                </p>
+                <a href="https://www.unifiji.ac.fj/school-of-business-and-economics/" class="faculty-button">Visit School</a>
+            </div>
+
+            <!-- Umanand Prasad School of Medicine -->
+            <div class="faculty-block">
+                <h2 class="faculty-title">Umanand Prasad School of Medicine</h2>
+                <p class="faculty-description">
+                    The Umanand Prasad School of Medicine provides medical education and training to prepare students for healthcare careers.
+                </p>
+                <a href="https://www.unifiji.ac.fj/umanand-prasad-school-of-medicine/" class="faculty-button">Visit School</a>
+            </div>
+
+            <!-- Justice Devendra Pathik School of Law -->
+            <div class="faculty-block">
+                <h2 class="faculty-title">Justice Devendra Pathik School of Law</h2>
+                <p class="faculty-description">
+                    The School of Law offers programs to develop legal professionals equipped with knowledge in law, ethics, and justice.
+                </p>
+                <a href="https://www.unifiji.ac.fj/school-of-law/" class="faculty-button">Visit School</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <!-- Join Our University Section -->
+        <div class="footer-section">
+            <h3>Join Our University</h3>
+            <p>
+                The University of Fiji was established by the Arya Pratinidhi Sabha of Fiji to provide high quality, affordable higher education to students who had no access to other tertiary institutions.
+            </p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section footer-links">
+            <h3>Quick Links</h3>
+            <a href="https://www.unifiji.ac.fj/apply/">Apply</a>
+            <a href="https://www.unifiji.ac.fj/vacancies/">Vacancies</a>
+            <a href="https://www.unifiji.ac.fj/newsletters-unipulse/">Newsletters – UniPulse</a>
+            <a href="https://www.unifiji.ac.fj/news-blog/">News & Blog</a>
+            <a href="https://www.unifiji.ac.fj/contact-us/">Contact Us</a>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="footer-section">
+            <h3>Social Media</h3>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/UniFiji/" class="facebook" aria-label="Facebook">f</a>
+                <a href="https://twitter.com/unifiji1" class="twitter" aria-label="twitter">X</a>
+                <a href="https://www.linkedin.com/school/unifiji/" class="linkedin" aria-label="LinkedIn">in</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        &copy; 2024 The University of Fiji. All rights reserved.
+    </div>
+
+    <!-- JavaScript to Disable Right-Click -->
+    <script>
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
